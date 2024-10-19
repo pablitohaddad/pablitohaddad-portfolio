@@ -14,7 +14,7 @@ var DatabaseConnection *gorm.DB
 func Connect(){
 
 	// Conecta ao meu banco de dados local Postgres, ele ja tem que estar criado!
-	dataSourceName := "host=localhost user=postgres password=root dbname=meu_portfolio_db port=5432 sslmode=disable"
+	dataSourceName := "host=localhost user=postgres password=admin dbname=meu_portfolio_db port=5432 sslmode=disable"
 
 	var err error
 	// GORM abre a conexão com o banco de dados
