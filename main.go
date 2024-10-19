@@ -2,6 +2,7 @@ package main
 
 import (
 	"log"
+	"pablitohaddad-portfolio/controllers"
 	"pablitohaddad-portfolio/database"
 	"pablitohaddad-portfolio/models"
 
@@ -21,11 +22,11 @@ func main(){
 
 	router := gin.Default()
 
-	router.GET("/", func (c *gin.Context){
-		c.JSON(200, gin.H{
-			"message": "Projeto inicializado com sucesso",
-		})
-	})
+	router.POST("/createUser", controllers.CreateUser) // Definindo a rota do create
+	router.GET("/getUser", controllers.GetAllUsers) // Definindo a rota do get all users
+	router.GET("/getUser/:id", controllers.GetUserById) // Definindo a rota do get all users
+	router.PUT("/updateUser/:id", controllers.UpdateUser) // Definindo a rota do update user
+	router.DELETE("/deleteUser/:id", controllers.DeleteUser) // Definindo a rota do update user
 
 	router.Run(":8080")
 
