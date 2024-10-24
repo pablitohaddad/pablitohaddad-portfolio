@@ -23,7 +23,7 @@ func main(){
 	router := gin.Default()
 
 	router.POST("/createUser", controllers.CreateUser) // Definindo a rota do create
-	router.GET("/getUser", controllers.GetAllUsers) // Definindo a rota do get all users
+	router.GET("/getUsers", controllers.GetAllUsers) // Definindo a rota do get all users
 	router.GET("/getUser/:id", controllers.GetUserById) // Definindo a rota do get all users
 	router.PUT("/updateUser/:id", controllers.UpdateUser) // Definindo a rota do update user
 	router.DELETE("/deleteUser/:id", controllers.DeleteUser) // Definindo a rota do update user

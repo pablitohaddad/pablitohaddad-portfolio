@@ -4,6 +4,6 @@ import "gorm.io/gorm"
 
 type Tecnologia struct{
 	gorm.Model
-	Nome string `gorm:"size:255;not null"`
+	UrlFoto string `gorm:"not null"` // posso chamar a api devicons para pegar
 	Projetos []Projeto `gorm:"many2many:project_technologies;"`
 }

@@ -10,11 +10,10 @@ import (
 
 func CreateUser(c *gin.Context){ // c é a requisição HTTP que recebemos e vamos receber
 	var user models.Usuario
-
 	// Pegar os dados da requisição e vincula ao nosso usuário com ShouldBindJSON.
 	// err tem dois estados:
 	// 1. Valor de erro que vai ser tratado dentro do if
-	// 2. nil, que indica que não houve erro ao fazer ao chamar a função ShouldBindJSON
+	// 2. nil, que indica que não houve erro ao fazer ao chamar a função ShouldBindJSON, ou seja, deu certo
 	if err := c.ShouldBindJSON(&user); err != nil{
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
@@ -68,5 +67,3 @@ func DeleteUser(c *gin.Context){
 	database.DatabaseConnection.Delete(&user)
 	c.JSON(http.StatusNoContent, gin.H{"message": "User deleted sucessfully"})
 }
-
-
