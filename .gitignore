@@ -1,0 +1,44 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, and test coverage reports
+*.test
+*.out
+*.coverage
+
+# Output of the go coverage tool
+*.coverprofile
+*.cover.out
+
+# Output of the go build tool
+/build/
+
+# Ignore vendor directory
+/vendor/
+
+# Dependency directories (Go Modules)
+go.sum
+go.mod
+
+# If you're using IntelliJ IDE (optional)
+.idea/
+
+# VS Code settings and workspace files
+.vscode/
+*.code-workspace
+
+# Ignore logs, builds, and deployment files
+logs/
+*.log
+npm-debug.log*
+
+# Ignore environment variables
+.env
+
+# Ignore secrets or keys
+secrets/
+API_KEY
