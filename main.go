@@ -43,7 +43,7 @@ func main(){
 
 
 	// ROTA DE ENVIAR MENSAGEM
-	router.POST("/sendMessageForMe", controllers.SendContactMessage)
+	router.POST("portfolio/:username/sendMessageForMe", controllers.SendContactMessage)
 
 	router.Run(":8080")
 
