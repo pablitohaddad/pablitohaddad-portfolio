@@ -49,7 +49,7 @@ go mod tidy
 
 ```bash
 psql -U postgres
-CREATE DATABASE meu_portfolio_db;
+CREATE DATABASE pablitohaddad_db;
 ```
 ### 4. Conecte-se no banco de dados alterando as informações no path database/connection.go
 ```
