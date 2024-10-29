@@ -38,8 +38,8 @@ Este projeto é um portfólio interativo desenvolvido em **Go**, utilizando o fr
 
 #### 1. Clone o Repositório
 ```bash
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
+git clone https://github.com/pablitohaddad/pablitohaddad-portfolio.git
+cd pablitohaddad-portfolio
 ```
 ### 2. Instale as Dependências
 ```bash
