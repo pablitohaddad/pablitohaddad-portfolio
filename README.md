@@ -53,7 +53,7 @@ CREATE DATABASE pablitohaddad_db;
 ```
 ### 4. Conecte-se no banco de dados alterando as informações no path database/connection.go
 ```
-dsn := "host=localhost user=postgres password=suaSenha dbname=meu_portfolio_db port=5432 sslmode=disable"
+dsn := "host=localhost user=postgres password=root dbname=pablitohaddad_db port=5432 sslmode=disable"
 ```
 4. Rodar as Migrações
 Execute a aplicação para rodar as migrações e criar as tabelas no banco de dados:
