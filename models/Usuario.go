@@ -7,6 +7,7 @@ type Usuario struct {
 	Nome string `gorm:"size:255;not null"`
 	UrlFotoUsuario string `gorm:"not null"`
 	Email string `gorm:"size:255;not null"`
+	Username string `gorm:"size:255;"`
 	Senha string `gorm:"size:255;not null"`
 	Bio string  `gorm:"size:500"`
 }

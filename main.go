@@ -34,16 +34,22 @@ func main(){
 
 	router := gin.Default()
 
+	// PARA CRIAÇÃO DE USUARIOS E CONTROLE DELES
+	rotaBasicaUsuario := "/api/v1/portfolio"
+
+	// PARA EXIBIÇÃO DAS INFORMAÇÕES DO USUÁRIO
+	rotaBasicaInformacoesDoUsuario := rotaBasicaUsuario + "/:username"
+
 	// ROTAS DO USUARIO
-	router.POST("/createUser", controllers.CreateUser) // Definindo a rota do create
-	router.GET("/getUsers", controllers.GetAllUsers) // Definindo a rota do get all users
-	router.GET("/getUser/:id", controllers.GetUserById) // Definindo a rota do get all users
-	router.PUT("/updateUser/:id", controllers.UpdateUser) // Definindo a rota do update user
-	router.DELETE("/deleteUser/:id", controllers.DeleteUser) // Definindo a rota do update user
+	router.POST(rotaBasicaUsuario + "/createUser", controllers.CreateUser) // Definindo a rota do create
+	router.GET( rotaBasicaUsuario + "/getUsers", controllers.GetAllUsers) // Definindo a rota do get all users
+	router.GET(rotaBasicaUsuario + "/getUser/:id", controllers.GetUserById) // Definindo a rota do get user by id
+	router.PUT(rotaBasicaUsuario + "/updateUser/:id", controllers.UpdateUser) // Definindo a rota do update user
+	router.DELETE(rotaBasicaUsuario + "/deleteUser/:id", controllers.DeleteUser) // Definindo a rota do update user
 
 
 	// ROTA DE ENVIAR MENSAGEM
-	router.POST("/sendMessageForMe", controllers.SendContactMessage)
+	router.POST(rotaBasicaInformacoesDoUsuario + "/sendMessageForMe", controllers.SendContactMessage)
 
 	router.Run(":8080")
 
