@@ -2,8 +2,9 @@ package models
 
 import "gorm.io/gorm"
 
-type Tecnologia struct{
+type Tecnologia struct {
 	gorm.Model
-	UrlFoto string `gorm:"not null"` // posso chamar a api devicons para pegar
-	Projetos []Projeto `gorm:"many2many:project_technologies;"`
+	Nome      string     `gorm:"size:100;not null;unique"` // Nome da tecnologia
+	UrlFoto   string     `gorm:"not null"` // Link para o ícone da tecnologia
+	Projetos  []Projeto  `gorm:"many2many:project_technologies;"`
 }
