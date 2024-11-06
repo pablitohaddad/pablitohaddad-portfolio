@@ -5,9 +5,12 @@ import (
 	"pablitohaddad-portfolio/controllers"
 	"pablitohaddad-portfolio/database"
 	"pablitohaddad-portfolio/models"
+	_"pablitohaddad-portfolio/docs"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	ginSwagger "github.com/swaggo/gin-swagger" // Middleware gin-swagger
+    swaggerFiles "github.com/swaggo/files"     // 
 )
 
 
@@ -19,9 +22,12 @@ func init() {
     }
 }
 
+// @title Título da API
+// @version 1.0
+// @description Descrição da sua API
+// @host localhost:8080
+// @BasePath /api/v1
 func main(){
-
-
 
 	// Conecta no meu banco de dados
 	database.Connect()
@@ -50,6 +56,8 @@ func main(){
 
 	// ROTA DE ENVIAR MENSAGEM
 	router.POST(rotaBasicaInformacoesDoUsuario + "/sendMessageForMe", controllers.SendContactMessage)
+
+	router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 
 	router.Run(":8080")
 

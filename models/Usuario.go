@@ -1,13 +1,18 @@
 package models
 
-import "gorm.io/gorm"
+import (
+	"time"
+)
 
 type Usuario struct {
-	gorm.Model
+	ID uint `json:"id" gorm:"primary_key"`
+    CreatedAt time.Time `json:"created_at"`
+    UpdatedAt time.Time `json:"updated_at"`
+    // DeletedAt gorm.DeletedAt `json:"deleted_at,omitempty" gorm:"index"`
 	Nome string `gorm:"size:255;not null"`
 	UrlFotoUsuario string `gorm:"not null"`
-	Email string `gorm:"size:255;not null"`
-	Username string `gorm:"size:255;"`
-	Senha string `gorm:"size:255;not null"`
-	Bio string  `gorm:"size:500"`
+	Email string `gorm:"size:255;unique;not null"`
+	Username string `gorm:"size:255;unique"`
+	Senha string `gorm:"size:255;not null"` // armazenar a senha com hash
+	Bio string `gorm:"size:500"`
 }

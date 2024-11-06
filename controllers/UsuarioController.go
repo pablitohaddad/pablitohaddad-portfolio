@@ -3,19 +3,26 @@ package controllers
 import (
 	"net/http"
 	"pablitohaddad-portfolio/database"
+	"pablitohaddad-portfolio/exceptions"
 	"pablitohaddad-portfolio/models"
 
 	"github.com/gin-gonic/gin"
 )
 
-func CreateUser(c *gin.Context){ // c é a requisição HTTP que recebemos e vamos receber
+// CreateUser lida com a requisição HTTP para criar um novo usuário.
+// @Summary Cria um novo usuário
+// @Description Recebe dados JSON para criar um novo usuário no sistema
+// @Tags Usuários
+// @Accept  json
+// @Produce  json
+// @Param   user body models.Usuario true "Dados do Usuário"
+// @Success 201 {object} models.Usuario
+// @Failure 400 {object} exceptions.ErrorResponse "Erro ao criar o Usuário"
+// @Router /users [post]
+func CreateUser(c *gin.Context){
 	var user models.Usuario
-	// Pegar os dados da requisição e vincula ao nosso usuário com ShouldBindJSON.
-	// err tem dois estados:
-	// 1. Valor de erro que vai ser tratado dentro do if
-	// 2. nil, que indica que não houve erro ao fazer ao chamar a função ShouldBindJSON, ou seja, deu certo
 	if err := c.ShouldBindJSON(&user); err != nil{
-		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+		c.JSON(http.StatusBadRequest, exceptions.ErrorResponse{Error: err.Error()})
 		return
 	}
 	database.DatabaseConnection.Create(&user)

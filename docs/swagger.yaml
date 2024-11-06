@@ -1,0 +1,59 @@
+definitions:
+  exceptions.ErrorResponse:
+    properties:
+      error:
+        type: string
+    type: object
+  models.Usuario:
+    properties:
+      bio:
+        type: string
+      created_at:
+        type: string
+      email:
+        type: string
+      id:
+        type: integer
+      nome:
+        description: DeletedAt gorm.DeletedAt `json:"deleted_at,omitempty" gorm:"index"`
+        type: string
+      senha:
+        description: armazenar a senha com hash
+        type: string
+      updated_at:
+        type: string
+      urlFotoUsuario:
+        type: string
+      username:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /users:
+    post:
+      consumes:
+      - application/json
+      description: Recebe dados JSON para criar um novo usuário no sistema
+      parameters:
+      - description: Dados do Usuário
+        in: body
+        name: user
+        required: true
+        schema:
+          $ref: '#/definitions/models.Usuario'
+      produces:
+      - application/json
+      responses:
+        "201":
+          description: Created
+          schema:
+            $ref: '#/definitions/models.Usuario'
+        "400":
+          description: Erro ao criar o Usuário
+          schema:
+            $ref: '#/definitions/exceptions.ErrorResponse'
+      summary: Cria um novo usuário
+      tags:
+      - Usuários
+swagger: "2.0"
